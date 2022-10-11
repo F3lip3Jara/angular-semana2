@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { observable, Observable } from 'rxjs';
 
 
 
@@ -10,9 +11,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-whishlistp';
 
+  time = new Observable(obs =>{
+      setInterval(()=> obs.next(new Date().toString()),1000)
+  });
 
-
-  destinoAgregado(d : any) {
-    
-  }
+ 
 }

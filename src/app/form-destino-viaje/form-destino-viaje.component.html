@@ -1,0 +1,21 @@
+<form
+[formGroup] = 'destino'
+(ngSubmit)  = "guardar(destino.controls['nombre'].value , destino.controls['url'].value)"                    >
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Ingresar nombre..." formControlName="nombre">
+        <ul>
+            <li *ngFor="let r of searchResults">{{r}}</li>
+        </ul>
+        
+        
+
+    </div>
+    <div  style="color: red;" *ngIf = "destino.controls['nombre'].hasError('required')">Debe ingresar un nombre</div>
+    <div class="form-group">
+        <label for="Imagen Url">Imagen Url</label>
+        <input type="text" class="form-control" id="imagenUrl" placeholder="Ingresar url..." formControlName="url">
+    </div>
+    <div style="color: red;"  *ngIf = "destino.controls['url'].hasError('required')">Debe ingresar una url</div>
+    <button type="submit"  class="btn btn-primary">Guardar!</button>
+</form>

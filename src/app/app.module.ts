@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { DestinoViajeComponent } from './destino-viaje/destino-viaje.component';
 import { ListaDestinosComponent } from './lista-destinos/lista-destinos.component';
 import { DestinoDetalleComponent } from './destino-detalle/destino-detalle.component';
+import { FormDestinoViajeComponent } from './form-destino-viaje/form-destino-viaje.component';
+import { DestinosViajesState } from './models/destinos-viajes-state.model';
+import { DestinosApiClient } from './models/destinos-api-client.model';
 
 
 
@@ -17,6 +20,10 @@ const routes: Routes = [
 ];
 
 
+export interface AppState{
+  destinos: DestinosViajesState;
+}
+
 
 
 @NgModule({
@@ -24,16 +31,19 @@ const routes: Routes = [
     AppComponent,
     DestinoViajeComponent,
     ListaDestinosComponent,
-    DestinoDetalleComponent
+    DestinoDetalleComponent,
+    FormDestinoViajeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    
+    
   ],
-  providers: [],
+  providers: [ DestinosApiClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
